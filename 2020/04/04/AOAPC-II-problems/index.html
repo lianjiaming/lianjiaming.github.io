@@ -1,0 +1,537 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>《算法竞赛入门经典》题单 | lianjiaming的博客</title><meta name="description" content="《算法竞赛入门经典》题单"><meta name="keywords" content="题单"><meta name="author" content="lianjiaming"><meta name="copyright" content="lianjiaming"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="baidu-site-verification" content="jMzBIeRfFa"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="《算法竞赛入门经典》题单"><meta name="twitter:description" content="《算法竞赛入门经典》题单"><meta name="twitter:image" content="https://s2.ax1x.com/2020/02/24/38In2D.jpg"><meta property="og:type" content="article"><meta property="og:title" content="《算法竞赛入门经典》题单"><meta property="og:url" content="http://lianjiaming.github.io/2020/04/04/AOAPC-II-problems/"><meta property="og:site_name" content="lianjiaming的博客"><meta property="og:description" content="《算法竞赛入门经典》题单"><meta property="og:image" content="https://s2.ax1x.com/2020/02/24/38In2D.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://lianjiaming.github.io/2020/04/04/AOAPC-II-problems/"><link rel="next" title="特别申明" href="http://lianjiaming.github.io/2020/04/03/attention/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"></head><body><canvas class="fireworks"></canvas><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">lianjiaming的博客</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://s2.ax1x.com/2020/02/24/38gUFe.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">20</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">8</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第一至二章"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">第一至二章</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第三章"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">第三章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题"><span class="toc_mobile_items-number">2.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第四章"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">第四章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-1"><span class="toc_mobile_items-number">3.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-1"><span class="toc_mobile_items-number">3.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第五章"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">第五章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-2"><span class="toc_mobile_items-number">4.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-2"><span class="toc_mobile_items-number">4.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第六章"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">第六章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-3"><span class="toc_mobile_items-number">5.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-3"><span class="toc_mobile_items-number">5.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第七章"><span class="toc_mobile_items-number">6.</span> <span class="toc_mobile_items-text">第七章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-4"><span class="toc_mobile_items-number">6.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-4"><span class="toc_mobile_items-number">6.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第八章"><span class="toc_mobile_items-number">7.</span> <span class="toc_mobile_items-text">第八章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-5"><span class="toc_mobile_items-number">7.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-5"><span class="toc_mobile_items-number">7.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第九章"><span class="toc_mobile_items-number">8.</span> <span class="toc_mobile_items-text">第九章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-6"><span class="toc_mobile_items-number">8.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-6"><span class="toc_mobile_items-number">8.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第十章"><span class="toc_mobile_items-number">9.</span> <span class="toc_mobile_items-text">第十章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-7"><span class="toc_mobile_items-number">9.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-7"><span class="toc_mobile_items-number">9.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第十一章"><span class="toc_mobile_items-number">10.</span> <span class="toc_mobile_items-text">第十一章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-8"><span class="toc_mobile_items-number">10.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-8"><span class="toc_mobile_items-number">10.2.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第十二章"><span class="toc_mobile_items-number">11.</span> <span class="toc_mobile_items-text">第十二章</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#例题-9"><span class="toc_mobile_items-number">11.1.</span> <span class="toc_mobile_items-text">例题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#附加题"><span class="toc_mobile_items-number">11.2.</span> <span class="toc_mobile_items-text">附加题</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#习题-9"><span class="toc_mobile_items-number">11.3.</span> <span class="toc_mobile_items-text">习题</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一至二章"><span class="toc-number">1.</span> <span class="toc-text">第一至二章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三章"><span class="toc-number">2.</span> <span class="toc-text">第三章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题"><span class="toc-number">2.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题"><span class="toc-number">2.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四章"><span class="toc-number">3.</span> <span class="toc-text">第四章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-1"><span class="toc-number">3.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-1"><span class="toc-number">3.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五章"><span class="toc-number">4.</span> <span class="toc-text">第五章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-2"><span class="toc-number">4.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-2"><span class="toc-number">4.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六章"><span class="toc-number">5.</span> <span class="toc-text">第六章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-3"><span class="toc-number">5.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-3"><span class="toc-number">5.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七章"><span class="toc-number">6.</span> <span class="toc-text">第七章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-4"><span class="toc-number">6.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-4"><span class="toc-number">6.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八章"><span class="toc-number">7.</span> <span class="toc-text">第八章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-5"><span class="toc-number">7.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-5"><span class="toc-number">7.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第九章"><span class="toc-number">8.</span> <span class="toc-text">第九章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-6"><span class="toc-number">8.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-6"><span class="toc-number">8.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十章"><span class="toc-number">9.</span> <span class="toc-text">第十章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-7"><span class="toc-number">9.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-7"><span class="toc-number">9.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十一章"><span class="toc-number">10.</span> <span class="toc-text">第十一章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-8"><span class="toc-number">10.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-8"><span class="toc-number">10.2.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十二章"><span class="toc-number">11.</span> <span class="toc-text">第十二章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题-9"><span class="toc-number">11.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#附加题"><span class="toc-number">11.2.</span> <span class="toc-text">附加题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#习题-9"><span class="toc-number">11.3.</span> <span class="toc-text">习题</span></a></li></ol></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(https://s2.ax1x.com/2020/02/24/38In2D.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">《算法竞赛入门经典》题单</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2020-04-04<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-04-04</time><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon fa-fw" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">3.2k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon fa-fw" aria-hidden="true"></i><span>阅读时长: 14 分钟</span><div class="post-meta-pv-cv"><span class="post-meta__separator">|</span><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>阅读量:</span><span id="busuanzi_value_page_pv"></span><span class="post-meta__separator">|</span><i class="fa fa-comments-o post-meta__icon fa-fw" aria-hidden="true"></i><span>评论数:</span><a href="/2020/04/04/AOAPC-II-problems/#post-comment"><span class="gitalk-comment-count comment-count"></span></a></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><p>对应表：</p>
+<p><a href="https://s1.ax1x.com/2020/04/04/Gw9VqP.png" target="_blank" rel="noopener" data-fancybox="group" data-caption="Gw9VqP.png" class="fancybox"><img alt="Gw9VqP.png" data-src="https://s1.ax1x.com/2020/04/04/Gw9VqP.png" class="lazyload" title="Gw9VqP.png"></a></p>
+<h3 id="第一至二章"><a href="#第一至二章" class="headerlink" title="第一至二章"></a>第一至二章</h3><p>无</p>
+<h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><ul>
+<li><a href="https://www.luogu.com.cn/problem/UVA272" target="_blank" rel="noopener">UVA272 TeX中的引号 TEX Quotes</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10082" target="_blank" rel="noopener">UVA10082 WERTYU</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA401" target="_blank" rel="noopener">UVA401 回文词 Palindromes</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA340" target="_blank" rel="noopener">UVA340 猜数字游戏的提示 Master-Mind Hints</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1583" target="_blank" rel="noopener">UVA1583 生成元 Digit Generator</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1584" target="_blank" rel="noopener">UVA1584 环状序列 Circular Sequence</a><h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1585" target="_blank" rel="noopener">UVA1585 得分 Score</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1586" target="_blank" rel="noopener">UVA1586 分子量 Molar mass</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1225" target="_blank" rel="noopener">UVA1225 数数字 Digit Counting</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA455" target="_blank" rel="noopener">UVA455 周期串 Periodic Strings</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA227" target="_blank" rel="noopener">UVA227 谜题 Puzzle</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA232" target="_blank" rel="noopener">UVA232 纵横字谜的答案 Crossword Answers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1368" target="_blank" rel="noopener">UVA1368 DNA序列 DNA Consensus String</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA202" target="_blank" rel="noopener">UVA202 循环小数 Repeating Decimals</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10340" target="_blank" rel="noopener">UVA10340 子序列 All in All</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1587" target="_blank" rel="noopener">UVA1587 盒子 Box</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1588" target="_blank" rel="noopener">UVA1588 换抵挡装置 Kickdown</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11809" target="_blank" rel="noopener">UVA11809 浮点数 Floating-Point Numbers</a><h3 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h3><h4 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1339" target="_blank" rel="noopener">UVA1339 古老的密码 Ancient Cipher</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA489" target="_blank" rel="noopener">UVA489 刽子手的游戏 Hangman Judge</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA133" target="_blank" rel="noopener">UVA133 救济金发放 The Dole Queue</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA213" target="_blank" rel="noopener">UVA213 信息解码 Message Decoding</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA512" target="_blank" rel="noopener">UVA512 追踪电子表格中的单元格 Spreadsheet Tracking</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12412" target="_blank" rel="noopener">UVA12412 师兄帮帮忙 A Typical Homework (a.k.a Shi Xiong Bang Bang Mang)</a><h4 id="习题-1"><a href="#习题-1" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1589" target="_blank" rel="noopener">UVA1589 象棋 Xiangqi</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA201" target="_blank" rel="noopener">UVA201 正方形 Squares</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA220" target="_blank" rel="noopener">UVA220 黑白棋 Othello</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA253" target="_blank" rel="noopener">UVA253 骰子涂色 Cube painting</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1590" target="_blank" rel="noopener">UVA1590 IP网络 IP Networks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA508" target="_blank" rel="noopener">UVA508 摩尔斯密码 Morse Mismatches</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA509" target="_blank" rel="noopener">UVA509 RAID技术 RAID!</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12108" target="_blank" rel="noopener">UVA12108 特别困的学生 Extraordinarily Tired Students</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1591" target="_blank" rel="noopener">UVA1591 数据挖掘 Data Mining</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA815" target="_blank" rel="noopener">UVA815 洪水！ Flooded!</a><h3 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h3><h4 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10474" target="_blank" rel="noopener">UVA10474 大理石在哪儿 Where is the Marble?</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA101" target="_blank" rel="noopener">UVA101 The Blocks Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10815" target="_blank" rel="noopener">UVA10815 安迪的第一个字典 Andy’s First Dictionary</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA156" target="_blank" rel="noopener">UVA156 反片语 Ananagrams</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12096" target="_blank" rel="noopener">UVA12096 集合栈计算机 The SetStack Computer</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA540" target="_blank" rel="noopener">UVA540 团体队列 Team Queue</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA136" target="_blank" rel="noopener">UVA136 丑数 Ugly Numbers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA400" target="_blank" rel="noopener">UVA400 Unix Is命令 Unix ls</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1592" target="_blank" rel="noopener">UVA1592 数据库 Database</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA207" target="_blank" rel="noopener">UVA207 PGA巡回赛的奖金 PGA Tour Prize Money</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA814" target="_blank" rel="noopener">UVA814 邮件传输代理的交互 The Letter Carrier’s Rounds</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA221" target="_blank" rel="noopener">UVA221 城市正视图 Urban Elevations</a><h4 id="习题-2"><a href="#习题-2" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1593" target="_blank" rel="noopener">UVA1593 代码对齐 Alignment of Code</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1594" target="_blank" rel="noopener">UVA1594 Ducci序列 Ducci Sequence</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10935" target="_blank" rel="noopener">UVA10935 卡片游戏 Throwing cards away I</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10763" target="_blank" rel="noopener">UVA10763 交换学生 Foreign Exchange</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10391" target="_blank" rel="noopener">UVA10391 复合词 Compound Words</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1595" target="_blank" rel="noopener">UVA1595 对称轴 Symmetry</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12100" target="_blank" rel="noopener">UVA12100 打印队列 Printer Queue</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA230" target="_blank" rel="noopener">UVA230 图书管理系统 Borrowers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1596" target="_blank" rel="noopener">UVA1596 找bug Bug Hunt</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1597" target="_blank" rel="noopener">UVA1597 在Web中搜索 Searching the Web</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12504" target="_blank" rel="noopener">UVA12504 更新字典 Updating a Dictionary</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA511" target="_blank" rel="noopener">UVA511 地图查询 Do You Know the Way to San Jose?</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA822" target="_blank" rel="noopener">UVA822 客户中心模拟 Queue and A</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1598" target="_blank" rel="noopener">UVA1598 交易所 Exchange</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12333" target="_blank" rel="noopener">UVA12333 Fibonacci的复仇 Revenge of Fibonacci</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA212" target="_blank" rel="noopener">UVA212 医院设备利用 Use of Hospital Facilities</a><h3 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h3><h4 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA210" target="_blank" rel="noopener">UVA210 并行程序模拟 Concurrency Simulator</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA514" target="_blank" rel="noopener">UVA514 铁轨 Rails</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA442" target="_blank" rel="noopener">UVA442 矩阵链乘 Matrix Chain Multiplication</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11988" target="_blank" rel="noopener">UVA11988 破损的键盘 Broken Keyboard (a.k.a. Beiju Text)</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12657" target="_blank" rel="noopener">UVA12657 移动盒子 Boxes in a Line</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA679" target="_blank" rel="noopener">UVA679 小球下落 Dropping Balls</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA122" target="_blank" rel="noopener">UVA122 树的层次遍历 Trees on the level</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA548" target="_blank" rel="noopener">UVA548 树 Tree</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA839" target="_blank" rel="noopener">UVA839 天平 Not so Mobile</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA699" target="_blank" rel="noopener">UVA699 下落的树叶 The Falling Leaves</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA297" target="_blank" rel="noopener">UVA297 四分树 Quadtrees</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA512" target="_blank" rel="noopener">UVA512 追踪电子表格中的单元格 Spreadsheet Tracking</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1103" target="_blank" rel="noopener">UVA1103 古代象形符号 Ancient Messages</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA816" target="_blank" rel="noopener">UVA816 Abbott的复仇 Abbott’s Revenge</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10305" target="_blank" rel="noopener">UVA10305 给任务排序 Ordering Tasks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10129" target="_blank" rel="noopener">UVA10129 单词 Play on Words</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10562" target="_blank" rel="noopener">UVA10562 看图写树 Undraw the Trees</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12171" target="_blank" rel="noopener">UVA12171 雕塑 Sculpture</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1572" target="_blank" rel="noopener">UVA1572 自组合 Self-Assembly</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1599" target="_blank" rel="noopener">UVA1599 理想路径 Ideal Path</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA506" target="_blank" rel="noopener">UVA506 系统依赖 System Dependencies</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11853" target="_blank" rel="noopener">UVA11853 战场 Paintball</a><h4 id="习题-3"><a href="#习题-3" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA673" target="_blank" rel="noopener">UVA673 平衡的括号 Parentheses Balance</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA712" target="_blank" rel="noopener">UVA712 S树 S-Trees</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA536" target="_blank" rel="noopener">UVA536 二叉树重建 Tree Recovery</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA439" target="_blank" rel="noopener">UVA439 骑士的移动 Knight Moves</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1600" target="_blank" rel="noopener">UVA1600 巡逻机器人 Patrol Robot</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12166" target="_blank" rel="noopener">UVA12166 修改天平 Equilibrium Mobile</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA804" target="_blank" rel="noopener">UVA804 Petri网模拟 Petri Net Simulation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA806" target="_blank" rel="noopener">UVA806 空间结构 Spatial Structures</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA127" target="_blank" rel="noopener">UVA127 纸牌游戏 “Accordian” Patience</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA246" target="_blank" rel="noopener">UVA246 10-20-30游戏 10-20-30</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10410" target="_blank" rel="noopener">UVA10410 树重建 Tree Reconstruction</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA810" target="_blank" rel="noopener">UVA810 筛子难题 A Dicey Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA215" target="_blank" rel="noopener">UVA215 电子表格计算器 Spreadsheet Calculator</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12118" target="_blank" rel="noopener">UVA12118 检查员的难题 Inspector’s Dilemma</a><h3 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h3><h4 id="例题-4"><a href="#例题-4" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA725" target="_blank" rel="noopener">UVA725 除法 Division</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11059" target="_blank" rel="noopener">UVA11059 最大乘积 Maximum Product</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10976" target="_blank" rel="noopener">UVA10976 分数拆分 Fractions Again?!</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA524" target="_blank" rel="noopener">UVA524 素数环 Prime Ring Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA129" target="_blank" rel="noopener">UVA129 困难的串 Krypton Factor</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA140" target="_blank" rel="noopener">UVA140 带宽 Bandwidth</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1354" target="_blank" rel="noopener">UVA1354 天平难题 Mobile Computing</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10603" target="_blank" rel="noopener">UVA10603 倒水问题 Fill</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1601" target="_blank" rel="noopener">UVA1601 万圣节后的早晨 The Morning after Halloween</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11212" target="_blank" rel="noopener">UVA11212 编辑书稿 Editing a Book</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12325" target="_blank" rel="noopener">UVA12325 宝箱 Zombie’s Treasure Chest</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1343" target="_blank" rel="noopener">UVA1343 旋转游戏 The Rotation Game</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1374" target="_blank" rel="noopener">UVA1374 快速幂计算 Power Calculus</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1602" target="_blank" rel="noopener">UVA1602 网格动物 Lattice Animals</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1603" target="_blank" rel="noopener">UVA1603 破坏正方形 Square Destroyer</a><h4 id="习题-4"><a href="#习题-4" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA208" target="_blank" rel="noopener">UVA208 消防车 Firetruck</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA225" target="_blank" rel="noopener">UVA225 黄金图形 Golygons</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA211" target="_blank" rel="noopener">UVA211 多米诺效应 The Domino Effect</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA818" target="_blank" rel="noopener">UVA818 切断圆环链 Cutting Chains</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA690" target="_blank" rel="noopener">UVA690 流水线调度 Pipeline Scheduling</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12113" target="_blank" rel="noopener">UVA12113 重叠的正方形 Overlapping Squares</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12558" target="_blank" rel="noopener">UVA12558 埃及分数 Egyptian Fractions (HARD version)</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12107" target="_blank" rel="noopener">UVA12107 数字谜 Digit Puzzle</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1604" target="_blank" rel="noopener">UVA1604 立体八数码问题 Cubic Eight-Puzzle</a><h3 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h3><h4 id="例题-5"><a href="#例题-5" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA120" target="_blank" rel="noopener">UVA120 煎饼 Stacks of Flapjacks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1605" target="_blank" rel="noopener">UVA1605 联合国大楼 Building for UN</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1152" target="_blank" rel="noopener">UVA1152 和为0的4个值 4 Values whose Sum is 0</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11134" target="_blank" rel="noopener">UVA11134 传说中的车 Fabled Rooks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11054" target="_blank" rel="noopener">UVA11054 Gergovia的酒交易 Wine trading in Gergovia</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1606" target="_blank" rel="noopener">UVA1606 两亲性分子 Amphiphilic Carbon Molecules</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11572" target="_blank" rel="noopener">UVA11572 唯一的雪花 Unique Snowflakes</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1471" target="_blank" rel="noopener">UVA1471 防线 Defense Lines</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1451" target="_blank" rel="noopener">UVA1451 平均值 Average</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA714" target="_blank" rel="noopener">UVA714 抄书 Copying Books</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10954" target="_blank" rel="noopener">UVA10954 全部相加 Add All</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12627" target="_blank" rel="noopener">UVA12627 奇怪的气球膨胀 Erratic Expansion</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11093" target="_blank" rel="noopener">UVA11093 环形跑道 Just Finish it up</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1607" target="_blank" rel="noopener">UVA1607 与非门电路 Gates</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12174" target="_blank" rel="noopener">UVA12174 Shuffle的播放记录 Shuffle</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1608" target="_blank" rel="noopener">UVA1608 不无聊的序列 Non-boring sequences</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1609" target="_blank" rel="noopener">UVA1609 不公平的竞赛 Foul Play</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1442" target="_blank" rel="noopener">UVA1442 洞穴 Cav</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12265" target="_blank" rel="noopener">UVA12265 贩卖土地 Selling Land</a><h4 id="习题-5"><a href="#习题-5" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1149" target="_blank" rel="noopener">UVA1149 装箱 Bin Packing</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1610" target="_blank" rel="noopener">UVA1610 聚会游戏 Party Games</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12545" target="_blank" rel="noopener">UVA12545 比特变换器 Bits Equalizer</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11491" target="_blank" rel="noopener">UVA11491 奖品的价值 Erasing and Winning</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA177" target="_blank" rel="noopener">UVA177 折纸痕 Paper Folding</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1611" target="_blank" rel="noopener">UVA1611 起重机 Crane</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11925" target="_blank" rel="noopener">UVA11925 生成排列 Generating Permutations</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1612" target="_blank" rel="noopener">UVA1612 猜名词 Guess</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1613" target="_blank" rel="noopener">UVA1613 K度图的着色 K-Graph Oddity</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1614" target="_blank" rel="noopener">UVA1614 奇怪的股市 Hell on the Markets</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1615" target="_blank" rel="noopener">UVA1615 高速公路 Highway</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1153" target="_blank" rel="noopener">UVA1153 顾客是上帝 Keep the Customer Satisfied</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10570" target="_blank" rel="noopener">UVA10570 外星人聚会 Meeting with Aliens</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1616" target="_blank" rel="noopener">UVA1616 商队抢劫者 Caravan Robbers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1617" target="_blank" rel="noopener">UVA1617 笔记本 Laptop</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1618" target="_blank" rel="noopener">UVA1618 弱键 Weak Key</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11536" target="_blank" rel="noopener">UVA11536 最短子序列 Smallest Sub-Array</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1619" target="_blank" rel="noopener">UVA1619 感觉不错 Feel Good</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1312" target="_blank" rel="noopener">UVA1312 球场 Cricket Field</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1620" target="_blank" rel="noopener">UVA1620 懒惰的苏珊 Lazy Susan</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1621" target="_blank" rel="noopener">UVA1621 跳来跳去 Jumping Around</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1622" target="_blank" rel="noopener">UVA1622 机器人 Robot</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1623" target="_blank" rel="noopener">UVA1623 神龙喝水 Enter The Dragon</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10366" target="_blank" rel="noopener">UVA10366 龙头滴水 Faucet Flow</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11175" target="_blank" rel="noopener">UVA11175 有向图D和E From D to E and Back</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12559" target="_blank" rel="noopener">UVA12559 找黑圆 Finding Black Circles</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1580" target="_blank" rel="noopener">UVA1580 海盗的宝箱 Pirate Chest</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1624" target="_blank" rel="noopener">UVA1624 打结 Knots</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11214" target="_blank" rel="noopener">UVA11214 守卫键盘 Guarding the Chessboard</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12569" target="_blank" rel="noopener">UVA12569 树上的机器人规划（简单版） Planning mobile robot on Tree (EASY Version)</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1533" target="_blank" rel="noopener">UVA1533 移动小球 Moving Pegs</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA817" target="_blank" rel="noopener">UVA817 数字表达式 According to Bartjens</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA307" target="_blank" rel="noopener">UVA307 小木棍 Sticks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11882" target="_blank" rel="noopener">UVA11882 最大的数 Biggest Number</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11846" target="_blank" rel="noopener">UVA11846 找座位 Finding Seats Again</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11694" target="_blank" rel="noopener">UVA11694 Gokigen Naname谜题 Gokigen Naname</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10384" target="_blank" rel="noopener">UVA10384 推门游戏 The Wall Pushers</a><h3 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h3><h4 id="例题-6"><a href="#例题-6" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1025" target="_blank" rel="noopener">UVA1025 城市里的间谍 A Spy in the Metro</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA437" target="_blank" rel="noopener">UVA437 巴比伦塔 The Tower of Babylon</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1347" target="_blank" rel="noopener">UVA1347 旅行 Tour</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA116" target="_blank" rel="noopener">UVA116 单向TSP Unidirectional TSP</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12563" target="_blank" rel="noopener">UVA12563 劲歌金曲 Jin Ge Jin Qu hao</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11400" target="_blank" rel="noopener">UVA11400 照明系统设计 Lighting System Design</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11584" target="_blank" rel="noopener">UVA11584 划分成回文串 Partitioning by Palindromes</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1625" target="_blank" rel="noopener">UVA1625 颜色的长度 Color Length</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10003" target="_blank" rel="noopener">UVA10003 切木棍 Cutting Sticks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1626" target="_blank" rel="noopener">UVA1626 括号序列 Brackets sequence</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1331" target="_blank" rel="noopener">UVA1331 最大面积最小的三角剖分 Minimax Triangulation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12186" target="_blank" rel="noopener">UVA12186 工人的请愿书 Another Crisis</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1220" target="_blank" rel="noopener">UVA1220 Hali-Bula的晚会 Party at Hali-Bula</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1218" target="_blank" rel="noopener">UVA1218 完美的服务 Perfect Service</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10817" target="_blank" rel="noopener">UVA10817 校长的烦恼 Headmaster’s Headache</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1252" target="_blank" rel="noopener">UVA1252 20个问题 Twenty Questions</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1412" target="_blank" rel="noopener">UVA1412 基金管理 Fund Management</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10618" target="_blank" rel="noopener">UVA10618 跳舞机 Tango Tango Insurrection</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1627" target="_blank" rel="noopener">UVA1627 团队分组 Team them up!</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10934" target="_blank" rel="noopener">UVA10934 装满水的气球 Dropping water balloons</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1336" target="_blank" rel="noopener">UVA1336 修缮长城 Fixing the Great Wall</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12105" target="_blank" rel="noopener">UVA12105 越大越好 Bigger is Better</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1204" target="_blank" rel="noopener">UVA1204 有趣的游戏 Fun Game</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12099" target="_blank" rel="noopener">UVA12099 书架 The Bookcase</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12170" target="_blank" rel="noopener">UVA12170 轻松爬山 Easy Climb</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1380" target="_blank" rel="noopener">UVA1380 一个调度问题 A Scheduling Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10559" target="_blank" rel="noopener">UVA10559 方块消除 Blocks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1439" target="_blank" rel="noopener">UVA1439 独占访问2 Exclusive Access 2</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1228" target="_blank" rel="noopener">UVA1228 整数传输 Integer Transmission</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1375" target="_blank" rel="noopener">UVA1375 给孩子起名 The Best Name for Your Baby</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1628" target="_blank" rel="noopener">UVA1628 送披萨 Pizza Delivery</a><h4 id="习题-6"><a href="#习题-6" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10285" target="_blank" rel="noopener">UVA10285 最长的滑雪路径 Longest Run on a Snowboard</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10118" target="_blank" rel="noopener">UVA10118 免费糖果 Free Candies</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1629" target="_blank" rel="noopener">UVA1629 切蛋糕 Cake slicing</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1630" target="_blank" rel="noopener">UVA1630 串折叠 Folding</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA242" target="_blank" rel="noopener">UVA242 邮票和信封 Stamps and Envelope Size</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10723" target="_blank" rel="noopener">UVA10723 电子人的基因 Cyborg Genes</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1631" target="_blank" rel="noopener">UVA1631 密码锁 Locker</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1632" target="_blank" rel="noopener">UVA1632 阿里巴巴 Alibaba</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10163" target="_blank" rel="noopener">UVA10163 仓库守卫 Storage Keepers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10641" target="_blank" rel="noopener">UVA10641 照亮体育馆 Barisal Stadium</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1633" target="_blank" rel="noopener">UVA1633 禁止的回文子串 Dyslexic Gollum</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12093" target="_blank" rel="noopener">UVA12093 保卫Zonk Protecting Zonk</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1289" target="_blank" rel="noopener">UVA1289 叠盘子 Stacking Plates</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1543" target="_blank" rel="noopener">UVA1543 圆和多边形 Telescope</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12589" target="_blank" rel="noopener">UVA12589 学习向量 Learning Vector</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1634" target="_blank" rel="noopener">UVA1634 野餐 The Picnic</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10271" target="_blank" rel="noopener">UVA10271 佳佳的筷子 Chopsticks</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1379" target="_blank" rel="noopener">UVA1379 棒球投手 Pitcher Rotation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1443" target="_blank" rel="noopener">UVA1443 花环 Garlands</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12222" target="_blank" rel="noopener">UVA12222 山路 Mountain Road</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1371" target="_blank" rel="noopener">UVA1371 周期 Period</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1579" target="_blank" rel="noopener">UVA1579 俄罗斯套娃 Matryoshka</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1322" target="_blank" rel="noopener">UVA1322 优化最大值电路 Minimizing Maximizer</a><h3 id="第十章"><a href="#第十章" class="headerlink" title="第十章"></a>第十章</h3><h4 id="例题-7"><a href="#例题-7" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11582" target="_blank" rel="noopener">UVA11582 巨大的斐波那契数！ Colossal Fibonacci Numbers!</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12169" target="_blank" rel="noopener">UVA12169 不爽的裁判 Disgruntled Judge</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10375" target="_blank" rel="noopener">UVA10375 选择与除法 Choose and divide</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10791" target="_blank" rel="noopener">UVA10791 最小公倍数的最小和 Minimum Sum LCM</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12716" target="_blank" rel="noopener">UVA12716 GCD等于XOR GCD XOR</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1635" target="_blank" rel="noopener">UVA1635 无关的元素 Irrelevant Elements</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10820" target="_blank" rel="noopener">UVA10820 交表 Send a Table</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1262" target="_blank" rel="noopener">UVA1262 密码 Password</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1636" target="_blank" rel="noopener">UVA1636 决斗 Headshot</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10491" target="_blank" rel="noopener">UVA10491 奶牛和轿车 Cows and Cars</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11181" target="_blank" rel="noopener">UVA11181 条件概率 Probability|Given</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1637" target="_blank" rel="noopener">UVA1637 纸牌游戏 Double Patience</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA580" target="_blank" rel="noopener">UVA580 危险的组合 Critical Mass</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12034" target="_blank" rel="noopener">UVA12034 比赛名次 Race</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1638" target="_blank" rel="noopener">UVA1638 杆子的排列 Pole Arrangement</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12230" target="_blank" rel="noopener">UVA12230 过河 Crossing Rivers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1639" target="_blank" rel="noopener">UVA1639 糖果 Candy</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10288" target="_blank" rel="noopener">UVA10288 优惠券 Coupons</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11346" target="_blank" rel="noopener">UVA11346 概率 Probability</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10900" target="_blank" rel="noopener">UVA10900 你想当2^n元富翁吗？ So you want to be a 2n-aire?</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11971" target="_blank" rel="noopener">UVA11971 多边形 Polygon</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1640" target="_blank" rel="noopener">UVA1640 统计问题 The Counting Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10213" target="_blank" rel="noopener">UVA10213 多少块土地 How Many Pieces of Land ?</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1641" target="_blank" rel="noopener">UVA1641 ASCII面积 ASCII Area</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1363" target="_blank" rel="noopener">UVA1363 约瑟夫的数论问题 Joseph’s Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11440" target="_blank" rel="noopener">UVA11440 帮帮Tomisu Help Tomisu</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10214" target="_blank" rel="noopener">UVA10214 树林里的树 Trees in a Wood.</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1393" target="_blank" rel="noopener">UVA1393 （抽象问题）高速公路 Highways</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1642" target="_blank" rel="noopener">UVA1642 魔法GCD Magical GCD</a><h4 id="习题-7"><a href="#习题-7" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11040" target="_blank" rel="noopener">UVA11040 砌砖 Add bricks in the wall</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA808" target="_blank" rel="noopener">UVA808 勤劳的蜜蜂 Bee Breeding</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1643" target="_blank" rel="noopener">UVA1643 角度和正方形 Angle and Squares</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1644" target="_blank" rel="noopener">UVA1644 素数间隔 Prime Gap</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1213" target="_blank" rel="noopener">UVA1213 不同素数之和 Sum of Different Primes</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1210" target="_blank" rel="noopener">UVA1210 连续素数之和 Sum of Consecutive Prime Numbers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10539" target="_blank" rel="noopener">UVA10539 几乎是素数 Almost Prime Numbers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10622" target="_blank" rel="noopener">UVA10622 完全P次方数 Perfect P-th Powers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA294" target="_blank" rel="noopener">UVA294 约数 Divisors</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1645" target="_blank" rel="noopener">UVA1645 统计有根树 Count</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1646" target="_blank" rel="noopener">UVA1646 圈图的匹配 Edge Case</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA557" target="_blank" rel="noopener">UVA557 汉堡 Burger</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11526" target="_blank" rel="noopener">UVA11526 H(n)</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10886" target="_blank" rel="noopener">UVA10886 标准差 Standard Deviation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12063" target="_blank" rel="noopener">UVA12063 零和一 Zeros and Ones</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1647" target="_blank" rel="noopener">UVA1647 计算机变换 Computer Transformation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11105" target="_blank" rel="noopener">UVA11105 H-半素数 Semi-prime H-numbers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10837" target="_blank" rel="noopener">UVA10837 一个研究课题 A Research Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10868" target="_blank" rel="noopener">UVA10868 蹦极 Bungee Jumping</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1648" target="_blank" rel="noopener">UVA1648 商业中心 Business Center</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1649" target="_blank" rel="noopener">UVA1649 二项式系数 Binomial coefficients</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10640" target="_blank" rel="noopener">UVA10640 飞机环球 Planes around the World</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10479" target="_blank" rel="noopener">UVA10479 Hendrie序列 The Hendrie Sequence</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA766" target="_blank" rel="noopener">UVA766 幂之和 Sum of powers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1575" target="_blank" rel="noopener">UVA1575 因子 Factors</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12520" target="_blank" rel="noopener">UVA12520 方形花园 Square Garden</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1390" target="_blank" rel="noopener">UVA1390 互联 Interconnect</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1650" target="_blank" rel="noopener">UVA1650 数字串 Number String</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11982" target="_blank" rel="noopener">UVA11982 名次表的变化 Fantasy Cricket</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12371" target="_blank" rel="noopener">UVA12371 守卫 Guards</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12590" target="_blank" rel="noopener">UVA12590 守卫II Guards II</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1414" target="_blank" rel="noopener">UVA1414 汉诺塔 Hanoi Towers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1651" target="_blank" rel="noopener">UVA1651 二元运算 Binary Operation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12212" target="_blank" rel="noopener">UVA12212 记住密码 Password Remembering</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1282" target="_blank" rel="noopener">UVA1282 Fibonacci Words</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1652" target="_blank" rel="noopener">UVA1652 Fibonacci单词 Fibonacci System</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1653" target="_blank" rel="noopener">UVA1653 Fibonacci进制 Yet Another Multiple Problem</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10824" target="_blank" rel="noopener">UVA10824 倍数问题 Regular Polygon</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11186" target="_blank" rel="noopener">UVA11186 正多边形 Circum Triangle</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12535" target="_blank" rel="noopener">UVA12535 圆周上的三角形 Probability Through Experiments</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1406" target="_blank" rel="noopener">UVA1406 A Sequence of Numbers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12508" target="_blank" rel="noopener">UVA12508 网格中的三角形 Triangles in the Grid</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1654" target="_blank" rel="noopener">UVA1654 整数对 Pairs of integers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11246" target="_blank" rel="noopener">UVA11246 选整数 K-Multiple Free set </a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11166" target="_blank" rel="noopener">UVA11166 带符号二进制 Power Signs</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11895" target="_blank" rel="noopener">UVA11895 抽奖 Honorary Tickets</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11429" target="_blank" rel="noopener">UVA11429 随机数 Randomness</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1655" target="_blank" rel="noopener">UVA1655 考试 Exam</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1656" target="_blank" rel="noopener">UVA1656 指数塔 Exponential Towers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11303" target="_blank" rel="noopener">UVA11303 排列 Permutations</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1657" target="_blank" rel="noopener">UVA1657 游戏 Game</a><h3 id="第十一章"><a href="#第十一章" class="headerlink" title="第十一章"></a>第十一章</h3><h4 id="例题-8"><a href="#例题-8" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12219" target="_blank" rel="noopener">UVA12219 公共表达式消除 Common Subexpression Elimination</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1395" target="_blank" rel="noopener">UVA1395 苗条的生成树 Slim Span</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1151" target="_blank" rel="noopener">UVA1151 买还是建 Buy or Build</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA247" target="_blank" rel="noopener">UVA247 电话圈 Calling Circles</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10048" target="_blank" rel="noopener">UVA10048 噪音恐惧症 Audiophobia</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA658" target="_blank" rel="noopener">UVA658 这不是bug，而是特性 It’s not a Bug, it’s a Feature!</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA753" target="_blank" rel="noopener">UVA753 UNIX插头 A Plug for UNIX</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11082" target="_blank" rel="noopener">UVA11082 矩阵解压 Matrix Decompressing</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1658" target="_blank" rel="noopener">UVA1658 海军上将 Admiral</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1349" target="_blank" rel="noopener">UVA1349 Optimal Bus Route Design</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12661" target="_blank" rel="noopener">UVA12661 有趣的赛车比赛 Funny Car Racing</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1515" target="_blank" rel="noopener">UVA1515 水塘 Pool construction</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10735" target="_blank" rel="noopener">UVA10735 混合图的欧拉回路 Euler Circuit</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1279" target="_blank" rel="noopener">UVA1279 星际游击队 Asteroid Rangers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1659" target="_blank" rel="noopener">UVA1659 帮助小罗拉 Help Little Laura</a><h4 id="习题-8"><a href="#习题-8" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA821" target="_blank" rel="noopener">UVA821 网页跳跃 Page Hopping</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1001" target="_blank" rel="noopener">UVA1001 奶酪里的老鼠 Say Cheese</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA820" target="_blank" rel="noopener">UVA820 因特网带宽 Internet Bandwidth</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1660" target="_blank" rel="noopener">UVA1660 电视网络 Cable TV Network</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1661" target="_blank" rel="noopener">UVA1661 方程 Equation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1662" target="_blank" rel="noopener">UVA1662 括号 Brackets Removal
+</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10801" target="_blank" rel="noopener">UVA10801 电梯换乘 Lift Hopping</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1663" target="_blank" rel="noopener">UVA1663 净化器 Purifying Machine</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12549" target="_blank" rel="noopener">UVA12549 机器人警卫 Sentry Robots</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12011" target="_blank" rel="noopener">UVA12011 Risk游戏 Complete the Set</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1664" target="_blank" rel="noopener">UVA1664 占领新区域 Conquer a New Region</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1665" target="_blank" rel="noopener">UVA1665 岛屿 Islands</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1666" target="_blank" rel="noopener">UVA1666 最短路线 Walk</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1667" target="_blank" rel="noopener">UVA1667 乱糟糟的网络 Network Mess</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1668" target="_blank" rel="noopener">UVA1668 绿色行动 Let’s Go Green</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1669" target="_blank" rel="noopener">UVA1669 交换房子 Holiday’s Accommodatio</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1670" target="_blank" rel="noopener">UVA1670 王国的道路图 Kingdom Roadmap</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12214" target="_blank" rel="noopener">UVA12214 交通堵塞 Traffic Jam</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1518" target="_blank" rel="noopener">UVA1518 火车延误 Train delays</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12433" target="_blank" rel="noopener">UVA12433 租车 Rent a Car</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11671" target="_blank" rel="noopener">UVA11671 矩阵中的符号 Sign of Matrix</a><h3 id="第十二章"><a href="#第十二章" class="headerlink" title="第十二章"></a>第十二章</h3><h4 id="例题-9"><a href="#例题-9" class="headerlink" title="例题"></a>例题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1671" target="_blank" rel="noopener">UVA1671 语言的历史 History of Languages</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1672" target="_blank" rel="noopener">UVA1672 不相交的正规表达式 Disjoint Regular Expressions</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1673" target="_blank" rel="noopener">UVA1673 数字子串的和 str2int</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12161" target="_blank" rel="noopener">UVA12161 铁人比赛 Ironman Race in Treeland</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11194" target="_blank" rel="noopener">UVA11194 Stone Grid</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1674" target="_blank" rel="noopener">UVA1674 闪电的能量 Lightning Energy Report</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12538" target="_blank" rel="noopener">UVA12538 自带版本控制功能的IDE Version Controlled IDE</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA805" target="_blank" rel="noopener">UVA805 多边形相交 Polygon Intersections</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1675" target="_blank" rel="noopener">UVA1675 王国的重新合并 Kingdom Reunion</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12314" target="_blank" rel="noopener">UVA12314 清洁机器人 The Cleaning Robot</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1520" target="_blank" rel="noopener">UVA1520 航班 Flights</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1676" target="_blank" rel="noopener">UVA1676 背单词 GRE Words Revenge</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11198" target="_blank" rel="noopener">UVA11198 Dancing Digits</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1104" target="_blank" rel="noopener">UVA1104 芯片难题 Chips Challenge</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12567" target="_blank" rel="noopener">UVA12567 《第七页》、《时空轮回》与水的故事 Never7, Ever17 and Water</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12110" target="_blank" rel="noopener">UVA12110 怪兽滴水嘴 Gargoyle</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12253" target="_blank" rel="noopener">UVA12253 简单加密法 Simple Encryption</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12164" target="_blank" rel="noopener">UVA12164 伟大的游戏——剪刀石头布 The Great Game</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1677" target="_blank" rel="noopener">UVA1677 自行车 Cycling</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1678" target="_blank" rel="noopener">UVA1678 折纸公理6 Huzita Axiom 6</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1679" target="_blank" rel="noopener">UVA1679 简单几何 Easy Geometry</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12162" target="_blank" rel="noopener">UVA12162 打怪物 Shooting the Monster</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1017" target="_blank" rel="noopener">UVA1017 快乐的轮子 Merrily, We Roll Along!</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1286" target="_blank" rel="noopener">UVA1286 客房服务 Room Service</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1688" target="_blank" rel="noopener">UVA1688 屋顶 Roof</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12565" target="_blank" rel="noopener">UVA12565 可爱的魔法曲线 Lovely Magical Curves</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11188" target="_blank" rel="noopener">UVA11188 奇怪的歌剧院 A Strange Opera House</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12308" target="_blank" rel="noopener">UVA12308 最小包围长方体 Smallest Enclosing Box</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1680" target="_blank" rel="noopener">UVA1680 旅行 Journey</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1097" target="_blank" rel="noopener">UVA1097 下雨 Rain</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1681" target="_blank" rel="noopener">UVA1681 字典 Dictionary</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11199" target="_blank" rel="noopener">UVA11199 算符破译 Equations in Disguise</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1682" target="_blank" rel="noopener">UVA1682 独占访问 Exclusive Access</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11521" target="_blank" rel="noopener">UVA11521 压缩 Compressor</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12417" target="_blank" rel="noopener">UVA12417 公式编辑器 Formula Editor</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12666" target="_blank" rel="noopener">UVA12666 疯狂的谜题 Killer Puzzle</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12731" target="_blank" rel="noopener">UVA12731 太空站之谜 Mysterious Space Station</a><h4 id="附加题"><a href="#附加题" class="headerlink" title="附加题"></a>附加题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1683" target="_blank" rel="noopener">UVA1683 In case of failure</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12629" target="_blank" rel="noopener">UVA12629 Rectangle XOR Game</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12698" target="_blank" rel="noopener">UVA12698 Safari Park</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12711" target="_blank" rel="noopener">UVA12711 Game of Throne</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12713" target="_blank" rel="noopener">UVA12713 Pearl Chains</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12513" target="_blank" rel="noopener">UVA12513 Safe Places</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11594" target="_blank" rel="noopener">UVA11594 All Pairs Maximum Flow</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12415" target="_blank" rel="noopener">UVA12415 Digit Patterns</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11993" target="_blank" rel="noopener">UVA11993 Girls’ Celebration</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10766" target="_blank" rel="noopener">UVA10766 Organising the Organisation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11118" target="_blank" rel="noopener">UVA11118 Prisoners, Boxes and Pieces of Paper</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11915" target="_blank" rel="noopener">UVA11915 Recurrence</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1684" target="_blank" rel="noopener">UVA1684 Escape Plan</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1685" target="_blank" rel="noopener">UVA1685 Enjoyable Commutation</a><h4 id="习题-9"><a href="#习题-9" class="headerlink" title="习题"></a>习题</h4></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12306" target="_blank" rel="noopener">UVA12306 自编SketchUp My SketchUp</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1686" target="_blank" rel="noopener">UVA1686 平铺 Tiling</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1687" target="_blank" rel="noopener">UVA1687 切片树 Slicing Tree</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12227" target="_blank" rel="noopener">UVA12227 虫洞 Wormholes</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1688" target="_blank" rel="noopener">UVA1688 屋顶 Roof</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1689" target="_blank" rel="noopener">UVA1689 国际活动 International Event</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA11425" target="_blank" rel="noopener">UVA11425 Collecting Luggage EXTREME!!!</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1570" target="_blank" rel="noopener">UVA1570 加速器 Accelerator</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1690" target="_blank" rel="noopener">UVA1690 寻找缩图 Find a Minor</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1573" target="_blank" rel="noopener">UVA1573 赌博 Hey, Better Bettor</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1691" target="_blank" rel="noopener">UVA1691 完全平方子集 Hip To Be Square</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1692" target="_blank" rel="noopener">UVA1692 米诺陶洛斯的迷宫 Labyrinth of the Minotaur</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1693" target="_blank" rel="noopener">UVA1693 XAR</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1290" target="_blank" rel="noopener">UVA1290 收购游戏 Takeover Wars</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1694" target="_blank" rel="noopener">UVA1694 历史课 History course</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12570" target="_blank" rel="noopener">UVA12570 Qualle? Quale?</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA10383" target="_blank" rel="noopener">UVA10383 单后对单车 Queen vs Rook</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA12566" target="_blank" rel="noopener">UVA12566 谱曲 Melody “Creation”</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1695" target="_blank" rel="noopener">UVA1695 大逃亡 Escape</a></li>
+<li><a href="https://www.luogu.com.cn/problem/UVA1696" target="_blank" rel="noopener">UVA1696 蜘蛛旅行家 Traveling Spiders</a></li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">lianjiaming</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lianjiaming.github.io/2020/04/04/AOAPC-II-problems/">http://lianjiaming.github.io/2020/04/04/AOAPC-II-problems/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://lianjiaming.github.io">lianjiaming的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A2%98%E5%8D%95/">题单    </a></div><div class="post_share"><div class="social-share" data-image="https://s2.ax1x.com/2020/02/24/38In2D.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/04/03/attention/"><img class="next_cover lazyload" data-src="https://s2.ax1x.com/2020/02/24/38In2D.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>特别申明</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="gitalk-container"></div><script>var createIssueManually = false == true ? true : false;
+var distractionFreeMode = false == true ? true : false;
+var gitalk = new Gitalk({
+  clientID: '5c657defa205c4322718',
+  clientSecret: 'bc2f70851a596b9fe0f4db8c6f344d64af1c9395',
+  repo: 'lianjiamingblog-gitalk',
+  owner: 'lianjiaming',
+  admin: 'lianjiaming',
+  id: md5(decodeURI(location.pathname)),
+  createIssueManually: createIssueManually,
+  distractionFreeMode: distractionFreeMode,
+  language: 'zh-CN',
+  updateCountCallback: commentCount
+})
+gitalk.render('gitalk-container')
+
+function commentCount(n){
+  document.getElementsByClassName('gitalk-comment-count')[0].innerHTML= n
+}</script></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By lianjiaming</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/fireworks.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
